@@ -14,6 +14,7 @@ import { Navigate } from "react-router-dom";
 
 import { UserContext } from "../UserContext";
 import { useContext } from "react";
+import User from "../interfaces/User";
 
 const defaultTheme = createTheme();
 
@@ -39,8 +40,9 @@ export default function SignUp() {
         if ([name, email, phone].some((value) => !value)) {
             return setError("Make sure every field is filled.");
         }
-
-        localStorage.setItem("user", JSON.stringify({ name, phone, email }));
+        
+        const user: User = { email, name, phone };
+        localStorage.setItem("user", JSON.stringify(user));
 
         if (userContext) {
             userContext.setUser({

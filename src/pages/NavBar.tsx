@@ -9,7 +9,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -24,7 +23,6 @@ const pages = [
 ];
 
 function ResponsiveAppBar() {
-    
     const userContext = useContext(UserContext);
 
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -41,7 +39,7 @@ function ResponsiveAppBar() {
 
     const handleLogout = () => {
         localStorage.setItem("user", "");
-        
+
         if (userContext) {
             userContext.setUser(null);
         }
@@ -52,28 +50,23 @@ function ResponsiveAppBar() {
 
         if (value) {
             const user: User = JSON.parse(value);
-            
+
             if (userContext) {
                 userContext.setUser({
-                    ...user
-                })
+                    ...user,
+                });
             }
         }
     }, [userContext]);
-
 
     return (
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <AdbIcon
-                        sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-                    />
                     <Typography
                         variant="h6"
                         noWrap
                         component="a"
-                        href="#app-bar-with-responsive-menu"
                         sx={{
                             mr: 2,
                             display: { xs: "none", md: "flex" },
@@ -84,7 +77,7 @@ function ResponsiveAppBar() {
                             textDecoration: "none",
                         }}
                     >
-                        LOGO
+                        GMO
                     </Typography>
 
                     <Box
@@ -141,14 +134,10 @@ function ResponsiveAppBar() {
                             ))}
                         </Menu>
                     </Box>
-                    <AdbIcon
-                        sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
-                    />
                     <Typography
                         variant="h5"
                         noWrap
                         component="a"
-                        href="#app-bar-with-responsive-menu"
                         sx={{
                             mr: 2,
                             display: { xs: "flex", md: "none" },
@@ -160,7 +149,7 @@ function ResponsiveAppBar() {
                             textDecoration: "none",
                         }}
                     >
-                        LOGO
+                        GMO
                     </Typography>
                     <Box
                         sx={{
