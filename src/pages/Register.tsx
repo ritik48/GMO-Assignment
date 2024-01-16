@@ -40,7 +40,7 @@ export default function SignUp() {
         if ([name, email, phone].some((value) => !value)) {
             return setError("Make sure every field is filled.");
         }
-        
+
         const user: User = { email, name, phone };
         localStorage.setItem("user", JSON.stringify(user));
 
@@ -60,7 +60,7 @@ export default function SignUp() {
 
     return (
         <ThemeProvider theme={defaultTheme}>
-            <Container component="main" maxWidth="xs" sx={{ mt: 2 }}>
+            <Container component="main" maxWidth="xs" sx={{ mt: -10 }}>
                 {error && <Alert severity="error">{error}</Alert>}
                 <CssBaseline />
                 <Box

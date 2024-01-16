@@ -6,8 +6,6 @@ export default function Footer() {
     return (
         <Box
             sx={{
-                position: "absolute",
-                bottom: 0,
                 width: "100%",
             }}
         >

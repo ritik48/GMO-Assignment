@@ -56,7 +56,7 @@ export default function Home() {
 
     if (redirecting || !userContext?.user) {
         return (
-            <Container sx={{ my: 2 }}>
+            <Container sx={{ my: 2}}>
                 <Typography variant="h5">
                     You need to register to access this page.
                 </Typography>
