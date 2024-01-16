@@ -52,7 +52,7 @@ export default function SignUp() {
         setRedirect(true);
     };
 
-    if (redirect) {
+    if (redirect || userContext?.user) {
         return <Navigate to={"/"} />;
     }
 

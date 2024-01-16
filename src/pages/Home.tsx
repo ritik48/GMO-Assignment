@@ -12,10 +12,10 @@ export default function Home() {
 
     useEffect(() => {
         const value: string | null = localStorage.getItem("user");
-        if (!value || !userContext?.user) {
+        if (!value) {
             return setRedirect(true);
         }
-        const user: User = JSON.parse(value);
+        const user: User = JSON.parse(value ?? "");
 
         if (userContext) {
             userContext.setUser({
@@ -24,7 +24,7 @@ export default function Home() {
         }
     }, [userContext]);
 
-    if (redirect) {
+    if (redirect || !userContext?.user) {
         return <Navigate to={"/register"} />;
     }
 
